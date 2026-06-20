@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keluarga Besar Ustadi</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#fff0f5,#fffaf0);
+overflow-x:hidden;
+}
+
+/* BUNGA */
+.flower{
+position:fixed;
+top:-50px;
+font-size:30px;
+animation:fall 12s linear infinite;
+opacity:.8;
+z-index:1;
+}
+
+.flower:nth-child(1){left:5%;animation-delay:0s;}
+.flower:nth-child(2){left:20%;animation-delay:2s;}
+.flower:nth-child(3){left:40%;animation-delay:4s;}
+.flower:nth-child(4){left:60%;animation-delay:6s;}
+.flower:nth-child(5){left:80%;animation-delay:8s;}
+
+@keyframes fall{
+from{
+transform:translateY(-100px) rotate(0deg);
+}
+to{
+transform:translateY(110vh) rotate(360deg);
+}
+}
+
+header{
+text-align:center;
+padding:60px 20px;
+position:relative;
+z-index:2;
+}
+
+header h1{
+font-size:3rem;
+color:#d63384;
+animation:fadeDown 1.5s;
+}
+
+header p{
+margin-top:10px;
+color:#555;
+}
+
+@keyframes fadeDown{
+from{
+opacity:0;
+transform:translateY(-50px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.kepala{
+text-align:center;
+padding:20px;
+position:relative;
+z-index:2;
+}
+
+.kepala h2{
+color:#c2185b;
+}
+
+.menu{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:10px;
+padding:20px;
+}
+
+.menu button{
+padding:12px 18px;
+border:none;
+border-radius:30px;
+background:#d63384;
+color:white;
+cursor:pointer;
+transition:.3s;
+}
+
+.menu button:hover{
+transform:scale(1.08);
+}
+
+.petunjuk{
+text-align:center;
+color:#c2185b;
+font-weight:bold;
+padding:10px;
+animation:blink 2s infinite;
+}
+
+@keyframes blink{
+50%{opacity:.5;}
+}
+
+.container{
+max-width:700px;
+margin:auto;
+padding:20px;
+}
+
+.card{
+display:none;
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+animation:show .5s;
+}
+
+.card.active{
+display:block;
+}
+
+@keyframes show{
+from{
+opacity:0;
+transform:scale(.9);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+.card img{
+width:100%;
+aspect-ratio:1/1;
+object-fit:cover;
+cursor:pointer;
+transition:.4s;
+}
+
+.card img:hover{
+transform:scale(1.03);
+}
+
+.card h3{
+text-align:center;
+padding:15px;
+color:#d63384;
+}
+
+.info{
+padding:40px 20px;
+max-width:900px;
+margin:auto;
+text-align:center;
+}
+
+.info h2{
+color:#c2185b;
+margin-bottom:15px;
+}
+
+footer{
+background:#d63384;
+color:white;
+text-align:center;
+padding:30px;
+margin-top:30px;
+}
+
+/* POPUP */
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.7);
+justify-content:center;
+align-items:center;
+z-index:999;
+}
+
+.modal-box{
+background:white;
+padding:30px;
+border-radius:20px;
+max-width:500px;
+text-align:center;
+animation:zoom .4s;
+}
+
+@keyframes zoom{
+from{
+transform:scale(.5);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}
+
+.modal button{
+margin-top:15px;
+padding:10px 20px;
+border:none;
+background:#d63384;
+color:white;
+border-radius:10px;
+cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="flower">🌸</div>
+<div class="flower">🌷</div>
+<div class="flower">🌹</div>
+<div class="flower">🌺</div>
+<div class="flower">💐</div>
+
+<header>
+<h1>🌸 KELUARGA BESAR USTADI 🌸</h1>
+<p>Keluarga adalah tempat terbaik untuk berbagi cinta, kebahagiaan, dan kenangan.</p>
+</header>
+
+<section class="kepala">
+<h2>Kepala Keluarga</h2>
+<p><b>Bapak:</b> Ustadi</p>
+<p><b>Ibu:</b> Dewi Muzayanah</p>
+</section>
+
+<div class="menu">
+<button onclick="showCard('bersama')">Keluarga Ustadi Bersama</button>
+<button onclick="showCard('ayah')">Ayah & Ibu</button>
+<button onclick="showCard('k1')">Keluarga Pertama</button>
+<button onclick="showCard('k2')">Keluarga Kedua</button>
+<button onclick="showCard('k3')">Keluarga Ketiga</button>
+<button onclick="showCard('anak')">Anak Terakhir</button>
+</div>
+
+<div class="petunjuk">
+👇 Klik salah satu tombol di atas, lalu klik foto untuk membaca pesan keluarga 💖
+</div>
+
+<div class="container">
+
+<div class="card active bersama">
+<img src="foto/ustadi-bersama.jpg"
+onclick="pesan('Keluarga besar adalah anugerah yang menyatukan banyak hati dalam kasih sayang.')">
+<h3>Keluarga Ustadi Bersama</h3>
+</div>
+
+<div class="card ayah">
+<img src="foto/ayah-ibu.jpg"
+onclick="pesan('Ayah dan Ibu adalah cahaya yang menerangi setiap langkah keluarga.')">
+<h3>Ayah & Ibu</h3>
+</div>
+
+<div class="card k1">
+<img src="foto/keluarga1.jpg"
+onclick="pesan('Keluarga adalah tempat pertama kita belajar mencintai dan menghargai.')">
+<h3>Keluarga Pertama</h3>
+</div>
+
+<div class="card k2">
+<img src="foto/keluarga2.jpg"
+onclick="pesan('Semoga keluarga ini selalu diberikan kesehatan dan keberkahan.')">
+<h3>Keluarga Kedua</h3>
+</div>
+
+<div class="card k3">
+<img src="foto/keluarga3.jpg"
+onclick="pesan('Kebersamaan adalah harta yang paling berharga dalam keluarga.')">
+<h3>Keluarga Ketiga</h3>
+</div>
+
+<div class="card anak">
+<img src="foto/anak-terakhir.jpg"
+onclick="pesan('Anak adalah amanah yang membawa harapan dan kebahagiaan.')">
+<h3>Anak Terakhir</h3>
+</div>
+
+</div>
+
+<section class="info">
+<h2>💖 Pesan Keharmonisan Keluarga</h2>
+<p>
+Keluarga adalah tempat pulang yang penuh kasih sayang. Dalam keluarga,
+kita belajar untuk saling menghormati, membantu, dan mendukung satu sama lain.
+Semoga keluarga besar Ustadi selalu diberikan kesehatan, kebahagiaan,
+keberkahan rezeki, dan keharmonisan sepanjang masa.
+</p>
+</section>
+
+<footer>
+<h3>Dibuat Oleh Fadhil Samudra Hariadi</h3>
+<p>WhatsApp: 0882006484028</p>
+<br>
+<p>© Hak Cipta Dimiliki Oleh Keluarga Ustadi</p>
+</footer>
+
+<div class="modal" id="modal">
+<div class="modal-box">
+<h2>💌 Pesan Keluarga</h2>
+<p id="isiPesan"></p>
+<button onclick="tutup()">Tutup</button>
+</div>
+</div>
+
+<script>
+
+function showCard(kelas){
+
+document.querySelectorAll('.card')
+.forEach(card => card.classList.remove('active'));
+
+document.querySelector('.' + kelas)
+.classList.add('active');
+}
+
+function pesan(teks){
+document.getElementById("isiPesan").innerText = teks;
+document.getElementById("modal").style.display = "flex";
+}
+
+function tutup(){
+document.getElementById("modal").style.display = "none";
+}
+
+</script>
+
+</body>
+</html>
